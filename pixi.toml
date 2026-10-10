@@ -1,0 +1,30 @@
+[workspace]
+name = "neuromorphic-subsystem-engine"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-arm64"]
+
+[dependencies]
+python = "3.12.*"
+numpy = "*"
+pytorch = "*"
+cmake = ">=3.26"
+ninja = "*"
+cxx-compiler = "*"
+
+[pypi-dependencies]
+platformio = "*"
+
+[tasks.configure]
+cmd = "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release"
+
+[tasks.build]
+cmd = "cmake --build build"
+depends-on = ["configure"]
+
+[tasks.train]
+cmd = "python -m nse.train"
+cwd = "python"
+
+[tasks.firmware]
+cmd = "pio run"
+cwd = "firmware"

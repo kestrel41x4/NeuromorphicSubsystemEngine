@@ -1,0 +1,35 @@
+# Pixi & Conda
+.pixi/
+pixi.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.bin
+
+# C++ Build Artefacts
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+*.ninja
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+compile_commands.json
+
+# PlatformIO / Microcontroller
+.pio/
+.vscode/
+
+# Checkpoints & Weights
+*.onnx
+*.pt
+*.pth
+*.gguf
